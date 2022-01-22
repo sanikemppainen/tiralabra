@@ -11,4 +11,6 @@ This is a project for datastructures and algorithms practical course where I wil
 
 - Project language will be english, I am capable of doing peer reviews in Finnish as well.
 
+[Weekly report 1](https://github.com/sanikemppainen/tiralabra/blob/baa9d60d411c8d163bee5802f8f0e78148019381/weeklyreports/weekly%20report%201)
+
 (Opinto-ohjelma: Tietojenkäsittelytieteen kandidaatti)
