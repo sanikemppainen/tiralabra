@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       head tulostus testi
+       <title>Otsikko</title>
+       <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+       <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    </head>
+   
+   <body>
+        <div id = "map" style = "width: 600px; height:800px;"></div>
+        <script>
+            // Creating map options, pudasjärvi in the middle 
+            var mapOptions = {center: [65.3629, 26.9859],zoom: 5}
+            
+            // Creating a map object
+            var map = new L.map('map', mapOptions);
+            
+            // Creating a Layer object
+            var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+            //var transportlayer = new L.TileLayer('https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey={apikey}', apikey: '',);
+            // Adding layer to the map
+            map.addLayer(layer);
+
+            // cretinf a node (marker) and adding it to the map
+            var marker = L.marker([60.1699, 24.9384]);
+            //adding popup to marker
+            marker.bindPopup('Helsinki').openPopup();
+            marker.addTo(map);
+
+            //add event handler that adds markers on map (popups not wokring in these)
+            //ota nämä ylös? ja näistä nodeja?
+            //caihtoehtona kirjoittaa markers tai painaa kartalta
+            map.on("click", function(e){
+                new L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+            })
+
+            //add scale to map
+            var scale = L.control.scale();
+            scale.addTo(map);
+            window.alert(marker.getLatLng());
+
+         </script>
+
+         <div class="fromtoclass">
+            <form action="/fromto" method="POST">
+            <label for="from">First city:</label>
+            <input type="text" name="from"></p>
+            <label for="to">Last city :</label>
+            <input type="to" name="to"></p>
+            Choose an algorithm
+            <input type="radio" name="algorithm" values="ida"> IDA*
+            <input type="radio" name="algorithm" values="dijkstra"> Dijkstra
+            <input type="submit" value="Find a route">
+            <!--input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"-->
+            <p>
+            </form>
+        </div>
+    </body>
+
+</html>
