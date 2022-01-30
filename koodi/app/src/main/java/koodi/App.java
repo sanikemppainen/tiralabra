@@ -25,5 +25,7 @@ public class App {
             System.out.println("couldn't open html file in browser: "+ e);
         }
     }
+   
+
     //class joka ottaa /fromto ja resettaa etuciun eli vaan päivittää sinne kartan ja pisteet yms datan aölgoritmeista
 }
