@@ -27,5 +27,4 @@ public class App {
     }
    
 
-    //class joka ottaa /fromto ja resettaa etuciun eli vaan päivittää sinne kartan ja pisteet yms datan aölgoritmeista
 }
