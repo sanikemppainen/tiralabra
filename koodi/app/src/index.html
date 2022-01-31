@@ -33,26 +33,17 @@
             //add event handler that adds markers on map (popups not wokring in these)
             //ota nämä ylös? ja näistä nodeja?
             //caihtoehtona kirjoittaa markers tai painaa kartalta
-            function getlist(){
+
                 map.on('click', function(e){
                     new L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
                     var latlong= e.latlng.toString();
-                    //alert(latlong);
+
                     markerdatalist.push(latlong);
                     alert(markerdatalist);
-                    document.getElementById('divid').innerHTML=markerdatalist;
-                    });
 
-                    var finallist="";
-                    for(i=0; i<=(markerdatalist.length-1); i++){
-                        var uusilista=markerdatalist[i];
-                        finallist+="<li>"+uusilista+"</li>"
-                    }
-            
-                var list= document.getElementById("results");
-                list.innerHTML +="<li>"+list+"</li>";
-            }
-            
+                   document.getElementById('divid').innerHTML="<li>"+markerdatalist.join("</li><li>")+"</li>";
+                    });
+         
             //add scale to map
             var scale = L.control.scale();
             scale.addTo(map);
@@ -60,10 +51,11 @@
             //window.alert(marker.getLatLng());
 
          </script>
-         <body onload="getlist()">
-            <ul id="results">
-            </ul>
-        </body>
+        
+        <h3>
+            List of cities:
+        </h3>
+        <ul id="divid"></ul>
 
          <div class="fromtoclass">
             <form action="/fromto" method="POST">
